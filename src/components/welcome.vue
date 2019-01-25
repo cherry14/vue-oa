@@ -27,9 +27,9 @@
         <div class="system-title">电商后台管理系统</div>
         <div>
           <span class="welcome">
-              您好，xxx
+              您好，{{userinfo.username}}
             </span>
-          <el-button type="text" >退出</el-button>
+          <el-button type="text" @click="logout">退出</el-button>
         </div>
       </el-header>
       <!-- 中间内容部分 -->
@@ -47,11 +47,15 @@ import { fecth_menus } from '@/api/index.js'
 export default {
     data(){
         return {
-           menuslist:[]
+           menuslist:[],
+           userinfo:{}
         }
     },
     created(){
         this.menus()
+        this.userinfo = JSON.parse(localStorage.getItem('userinfo'))
+        console.log(userinfo.username)
+        
     },
     methods:{
         menus(){
@@ -60,6 +64,11 @@ export default {
                 this.menuslist=res.data.data
                 //  console.log(this.menuslist)
             })
+        },
+        logout(){
+          localStorage.removeItem("token")
+          localStorage.removeItem("userinfo")
+          this.$router.push('/login')
         }
     }
 
