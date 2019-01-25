@@ -45,7 +45,7 @@ export default {
         password:this.form.password
       }
       fecth_login(params).then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.meta.status==200){
           //登录成功首先存储token
           localStorage.setItem('token',res.data.data.token)

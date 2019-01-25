@@ -5,7 +5,7 @@
     <el-aside width="auto">
       <div class="logo"></div>
       <el-menu 
-      
+      :router='true'
       default-active="2" class="el-menu-admin" >
         <el-submenu :index="item.path" v-for="item in menuslist" :key="item.id">
           <template slot="title">
@@ -34,7 +34,7 @@
       </el-header>
       <!-- 中间内容部分 -->
       <el-main>
-          中间内容部分
+          
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -58,7 +58,7 @@ export default {
             fecth_menus().then(res=>{
                
                 this.menuslist=res.data.data
-                 console.log(this.menuslist)
+                //  console.log(this.menuslist)
             })
         }
     }
