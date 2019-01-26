@@ -43,5 +43,18 @@ const router =new Router({
 // const users={path:'/users',component:Users}
 
 // //添加动态路由并渲染  应该是个数组   放入当前页面所有路由
+//导航全局守卫
+router.beforeEach(function(to,from,next){
+  const token = localStorage.getItem('token')
+  if(token){
+    next()
+  }else{
+    if(to.path=='/login'){
+      next()
+    }else{
+      next('/login')
+    }
+  }
+})
 
 export default router

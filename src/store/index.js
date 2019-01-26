@@ -32,7 +32,7 @@ const store = new Vuex.Store({
                 
                 })
             });
-            console.log(routes)
+            // console.log(routes)
 
             return routes
         }
