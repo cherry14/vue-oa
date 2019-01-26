@@ -52,9 +52,11 @@ export default {
         }
     },
     created(){
-        // this.menus()
+        
+        this.$router.options.routes[2].children=this.$router.options.routes[2].children.concat(this.$store.getters.menusRouter)
+        this.$router.addRoutes(this.$router.options.routes)
         this.userinfo = JSON.parse(localStorage.getItem('userinfo'))
-        // console.log(userinfo.username)
+       
         
     },
     methods:{
