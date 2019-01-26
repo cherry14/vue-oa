@@ -2,12 +2,12 @@
 <div class="home">
   <el-container>
     <!-- 侧边栏 -->
-    <el-aside width="auto">
+    <el-aside  width="auto"> 
       <div class="logo"></div>
       <el-menu 
       :router='true'
       default-active="2" class="el-menu-admin" >
-        <el-submenu :index="item.path" v-for="item in menuslist" :key="item.id">
+        <el-submenu :index="item.path" v-for="item in this.$store.state.menus" :key="item.id">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>{{ item.authName }}</span>
@@ -52,19 +52,19 @@ export default {
         }
     },
     created(){
-        this.menus()
+        // this.menus()
         this.userinfo = JSON.parse(localStorage.getItem('userinfo'))
-        console.log(userinfo.username)
+        // console.log(userinfo.username)
         
     },
     methods:{
-        menus(){
-            fecth_menus().then(res=>{
+        // menus(){
+        //     fecth_menus().then(res=>{
                
-                this.menuslist=res.data.data
-                //  console.log(this.menuslist)
-            })
-        },
+        //         this.menuslist=res.data.data
+        //         //  console.log(this.menuslist)
+        //     })
+        // },
         logout(){
           localStorage.removeItem("token")
           localStorage.removeItem("userinfo")

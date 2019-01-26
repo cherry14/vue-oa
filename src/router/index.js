@@ -39,7 +39,7 @@ fecth_menus().then(res=>{
   });
   router.addRoutes(router.options.routes)
 })
-console.log(router)
+// console.log(router)
 
 // const users={path:'/users',component:Users}
 

@@ -45,11 +45,15 @@ export default {
         password:this.form.password
       }
       fecth_login(params).then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.meta.status==200){
           //登录成功首先存储token与用户信息
           localStorage.setItem('token',res.data.data.token)
           localStorage.setItem('userinfo',JSON.stringify(res.data.data))
+          
+          //登录成功后调取actions异步对象
+          this.$store.dispatch('getmenus',{1:"11"})
+          
           this.$router.push('/welcome')
         }
       })

@@ -11,12 +11,13 @@ import 'element-ui/lib/theme-chalk/index.css';
 // import App from './App.vue';
 
 Vue.use(ElementUI);
-
-
+//集成vuex
+import store from '@/store'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
